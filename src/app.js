@@ -9,7 +9,7 @@ let days = [
   "Wednesday",
   "Thursday",
   "Friday",
-  "Saturday"
+  "Saturday",
 ];
 let day = days[now.getDay()];
 
@@ -27,11 +27,40 @@ update.innerHTML = `Last updated: ${day}, ${hour}:${minute}`;
 //2
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
+  let humidity = response.data.main.humidity;
+  let wind = Math.round(response.data.wind.speed);
   let city = response.data.name;
   let h2 = document.querySelector("#celsius-link");
   h2.innerHTML = `${temperature}°C`;
   let h1 = document.querySelector("h1");
   h1.innerHTML = `${city}`;
+  let wind1 = document.querySelector("#wind");
+  wind1.innerHTML = `Wind: ${wind} km/h`;
+  let humidity1 = document.querySelector("#humidity");
+  humidity1.innerHTML = `Humidity: ${humidity}%`;
+}
+
+function showForecast(response) {
+  let temperature = Math.round(response.data.list[0].main.temp);
+  let time = response.data.list[0].dt_txt;
+  time = time.slice(11, -3);
+  let forecast1 = document.querySelector("#forecast1");
+  forecast1.innerHTML = `Forecast for </br> 🕒 ${time} </br> ${temperature}°C`;
+  temperature = Math.round(response.data.list[1].main.temp);
+  time = response.data.list[1].dt_txt;
+  time = time.slice(11, -3);
+  let forecast2 = document.querySelector("#forecast2");
+  forecast2.innerHTML = `Forecast for </br> 🕒 ${time} </br> ${temperature}°C`;
+  temperature = Math.round(response.data.list[2].main.temp);
+  time = response.data.list[2].dt_txt;
+  time = time.slice(11, -3);
+  let forecast3 = document.querySelector("#forecast3");
+  forecast3.innerHTML = `Forecast for </br> 🕒 ${time} </br> ${temperature}°C`;
+  temperature = Math.round(response.data.list[3].main.temp);
+  time = response.data.list[3].dt_txt;
+  time = time.slice(11, -3);
+  let forecast4 = document.querySelector("#forecast4");
+  forecast4.innerHTML = `Forecast for </br> 🕒 ${time} </br> ${temperature}°C`;
 }
 
 function handlePosition(position) {
@@ -40,6 +69,8 @@ function handlePosition(position) {
   let apiKey = "21de711a93f4b833469cf486a6d6e74e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 function getPosition(event) {
@@ -57,6 +88,8 @@ function changeCity(city) {
   let apiKey = "21de711a93f4b833469cf486a6d6e74e";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
+  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showForecast);
 }
 
 let cityinput = document.querySelector("#city-form");
