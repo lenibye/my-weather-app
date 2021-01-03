@@ -30,37 +30,64 @@ function showTemperature(response) {
   let humidity = response.data.main.humidity;
   let wind = Math.round(response.data.wind.speed);
   let city = response.data.name;
-  let h2 = document.querySelector("#celsius-link");
-  h2.innerHTML = `${temperature}°C`;
   let h1 = document.querySelector("h1");
+  let h2 = document.querySelector("#celsius-link");
+  let windelement = document.querySelector("#wind");
+  let humidityelement = document.querySelector("#humidity");
+  let iconelement = document.querySelector("#iconelement");
+
   h1.innerHTML = `${city}`;
-  let wind1 = document.querySelector("#wind");
-  wind1.innerHTML = `Wind: ${wind} km/h`;
-  let humidity1 = document.querySelector("#humidity");
-  humidity1.innerHTML = `Humidity: ${humidity}%`;
+  h2.innerHTML = `${temperature}°C`;
+  windelement.innerHTML = `Wind: ${wind} km/h`;
+  humidityelement.innerHTML = `Humidity: ${humidity}%`;
+  iconelement.setAttribute("src", `./img/${response.data.weather[0].icon}.png`);
+  iconelement.setAttribute("alt", `${response.data.weather[0].description}`);
 }
 
 function showForecast(response) {
   let temperature = Math.round(response.data.list[0].main.temp);
   let time = response.data.list[0].dt_txt;
   time = time.slice(11, -3);
-  let forecast1 = document.querySelector("#forecast1");
-  forecast1.innerHTML = `Forecast for </br> 🕒 ${time} </br> ${temperature}°C`;
+  let forecast0 = document.querySelector("#forecast0");
+  forecast0.innerHTML = `<img src="./img/02d.png" width="50px" id="iconelement0" /> </br>🕒 ${time} </br> ${temperature}°C`;
+  let iconelement0 = document.querySelector("#iconelement0");
+  iconelement0.setAttribute(
+    "src",
+    `./img/${response.data.list[0].weather[0].icon}.png`
+  );
+
   temperature = Math.round(response.data.list[1].main.temp);
   time = response.data.list[1].dt_txt;
   time = time.slice(11, -3);
-  let forecast2 = document.querySelector("#forecast2");
-  forecast2.innerHTML = `Forecast for </br> 🕒 ${time} </br> ${temperature}°C`;
+  let forecast1 = document.querySelector("#forecast1");
+  forecast1.innerHTML = `<img src="./img/02d.png" width="50px" id="iconelement1" /> </br> 🕒 ${time} </br> ${temperature}°C`;
+  let iconelement1 = document.querySelector("#iconelement1");
+  iconelement1.setAttribute(
+    "src",
+    `./img/${response.data.list[1].weather[0].icon}.png`
+  );
+
   temperature = Math.round(response.data.list[2].main.temp);
   time = response.data.list[2].dt_txt;
   time = time.slice(11, -3);
-  let forecast3 = document.querySelector("#forecast3");
-  forecast3.innerHTML = `Forecast for </br> 🕒 ${time} </br> ${temperature}°C`;
+  let forecast2 = document.querySelector("#forecast2");
+  forecast2.innerHTML = `<img src="./img/02d.png" width="50px" id="iconelement2" /> </br> 🕒 ${time} </br> ${temperature}°C`;
+  let iconelement2 = document.querySelector("#iconelement2");
+  iconelement2.setAttribute(
+    "src",
+    `./img/${response.data.list[2].weather[0].icon}.png`
+  );
+
   temperature = Math.round(response.data.list[3].main.temp);
   time = response.data.list[3].dt_txt;
   time = time.slice(11, -3);
-  let forecast4 = document.querySelector("#forecast4");
-  forecast4.innerHTML = `Forecast for </br> 🕒 ${time} </br> ${temperature}°C`;
+  let forecast3 = document.querySelector("#forecast3");
+  forecast3.innerHTML = `<img src="./img/02d.png" width="50px" id="iconelement3" /> </br> 🕒 ${time} </br> ${temperature}°C`;
+  let iconelement3 = document.querySelector("#iconelement3");
+  iconelement3.setAttribute(
+    "src",
+    `./img/${response.data.list[3].weather[0].icon}.png`
+  );
 }
 
 function handlePosition(position) {
