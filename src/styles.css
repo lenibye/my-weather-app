@@ -25,7 +25,7 @@ a {
   border-radius: 15px;
   max-width: 800px;
   margin: 50px auto;
-  padding: 40px 40px;
+  padding: 40px 40px 25px 40px;
   background: linear-gradient(180deg, #67b2df, #f9f9f9);
 }
 
@@ -70,9 +70,21 @@ button:hover {
   color: white;
   border: 1px solid #204051;
 }
-.creds {
-  position: absolute;
-  height: 2%;
-  bottom: 1%;
-  left: 1%;
+.source {
+  position: relative;
+  bottom: -13mm;
+  left: -9mm;
+}
+
+#humidity {
+  font-size: 20px;
+}
+#wind {
+  margin: 15px 0 0 0;
+  font-size: 20px;
+}
+
+.col-3 {
+  text-align: center;
+  font-weight: 450;
 }

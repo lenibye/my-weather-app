@@ -22,7 +22,9 @@ if (minute < 10) {
   minute = `0${minute}`;
 }
 
-update.innerHTML = `Last updated: ${day}, ${hour}:${minute}`;
+let timezone = now.toString().match(/\(([A-Za-z\s].*)\)/)[1];
+
+update.innerHTML = `Last updated: ${day}, ${hour}:${minute} </br>(*${timezone})`;
 
 //2
 function showTemperature(response) {
@@ -49,7 +51,7 @@ function showForecast(response) {
   let time = response.data.list[0].dt_txt;
   time = time.slice(11, -3);
   let forecast0 = document.querySelector("#forecast0");
-  forecast0.innerHTML = `<img src="./img/02d.png" width="50px" id="iconelement0" /> </br>🕒 ${time} </br> ${temperature}°C`;
+  forecast0.innerHTML = `<img src="./img/02d.png" width="50px" id="iconelement0" /> </br>🕒 ${time}* </br> 🌡️ ${temperature}°C`;
   let iconelement0 = document.querySelector("#iconelement0");
   iconelement0.setAttribute(
     "src",
@@ -60,7 +62,7 @@ function showForecast(response) {
   time = response.data.list[1].dt_txt;
   time = time.slice(11, -3);
   let forecast1 = document.querySelector("#forecast1");
-  forecast1.innerHTML = `<img src="./img/02d.png" width="50px" id="iconelement1" /> </br> 🕒 ${time} </br> ${temperature}°C`;
+  forecast1.innerHTML = `<img src="./img/02d.png" width="50px" id="iconelement1" /> </br> 🕒 ${time}* </br> 🌡️ ${temperature}°C`;
   let iconelement1 = document.querySelector("#iconelement1");
   iconelement1.setAttribute(
     "src",
@@ -71,7 +73,7 @@ function showForecast(response) {
   time = response.data.list[2].dt_txt;
   time = time.slice(11, -3);
   let forecast2 = document.querySelector("#forecast2");
-  forecast2.innerHTML = `<img src="./img/02d.png" width="50px" id="iconelement2" /> </br> 🕒 ${time} </br> ${temperature}°C`;
+  forecast2.innerHTML = `<img src="./img/02d.png" width="50px" id="iconelement2" /> </br> 🕒 ${time}* </br> 🌡️ ${temperature}°C`;
   let iconelement2 = document.querySelector("#iconelement2");
   iconelement2.setAttribute(
     "src",
@@ -82,7 +84,7 @@ function showForecast(response) {
   time = response.data.list[3].dt_txt;
   time = time.slice(11, -3);
   let forecast3 = document.querySelector("#forecast3");
-  forecast3.innerHTML = `<img src="./img/02d.png" width="50px" id="iconelement3" /> </br> 🕒 ${time} </br> ${temperature}°C`;
+  forecast3.innerHTML = `<img src="./img/02d.png" width="50px" id="iconelement3" /> </br> 🕒 ${time}* </br> 🌡️ ${temperature}°C`;
   let iconelement3 = document.querySelector("#iconelement3");
   iconelement3.setAttribute(
     "src",
