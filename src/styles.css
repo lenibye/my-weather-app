@@ -88,3 +88,21 @@ button:hover {
   text-align: center;
   font-weight: 450;
 }
+
+a.active {
+  pointer-events: none;
+  cursor: default;
+  color: #912a26;
+  text-decoration: none;
+}
+
+a.active:hover {
+  pointer-events: none;
+  cursor: default;
+  color: #912a26;
+  text-decoration: none;
+}
+
+a.inactive {
+  font-size: 15px;
+}
