@@ -21,7 +21,7 @@ if (minute < 10) {
 }
 let timezone = now.toString().match(/\(([A-Za-z\s].*)\)/)[1];
 
-update.innerHTML = `Last updated: ${day}, ${hour}:${minute} </br>(*${timezone})`;
+update.innerHTML = `Last updated: ${day}, ${hour}:${minute} </br>*${timezone}`;
 
 // temperature and forecast
 function showTemperature(response) {
@@ -104,6 +104,7 @@ function getPosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(handlePosition);
 }
+
 let currentButton = document.querySelector("#current");
 currentButton.addEventListener("click", getPosition);
 
@@ -119,6 +120,7 @@ function handleCity(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#input-city");
   changeCity(cityInputElement.value);
+  cityInput.reset();
 }
 
 let cityInput = document.querySelector("#city-form");
@@ -127,11 +129,11 @@ cityInput.addEventListener("submit", handleCity);
 //unit conversion
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
   celsiusLink.classList.remove("active");
   celsiusLink.classList.add("inactive");
   fahrenheitLink.classList.remove("inactive");
   fahrenheitLink.classList.add("active");
+  let temperatureElement = document.querySelector("#temperature");
   let fahrenheitTemperature = (temperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
@@ -147,11 +149,40 @@ function displayCelsiusTemperature(event) {
 }
 
 let temperature = null;
-
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
 let celsiusLink = document.querySelector("#celsius-link");
+
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
+//cities
+
 changeCity("Mannheim");
+
+function berlin(event) {
+  event.preventDefault();
+  changeCity("Berlin");
+}
+let clickBerlin = document.querySelector("#berlin");
+clickBerlin.addEventListener("click", berlin);
+
+function newyork(event) {
+  event.preventDefault();
+  changeCity("New York");
+}
+let clickNewYork = document.querySelector("#newyork");
+clickNewYork.addEventListener("click", newyork);
+
+function bangkok(event) {
+  event.preventDefault();
+  changeCity("Bangkok");
+}
+let clickBangkok = document.querySelector("#bangkok");
+clickBangkok.addEventListener("click", bangkok);
+
+function tokyo(event) {
+  event.preventDefault();
+  changeCity("Tokyo");
+}
+let clickTokyo = document.querySelector("#tokyo");
+clickTokyo.addEventListener("click", tokyo);

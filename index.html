@@ -67,7 +67,10 @@
               <div id="wind">Wind:</div>
               <div id="humidity">Humidity:</div>
             </h2>
-            <small id="update"> Last updated: now <br /><br /></small>
+            <span id="update">
+              Last updated:<br />
+              *Timezone:</span
+            >
           </div>
         </div>
         <hr />
@@ -75,43 +78,62 @@
           <div class="col-3" id="forecast0">
             <img src="./img/02d.png" width="50px" id="iconelement0" />
             <br />
-            Morning
+            Time
             <br />
-            🌡️ 5°C
+            🌡️ °C
           </div>
           <div class="col-3" id="forecast1">
             <img src="./img/02d.png" width="50px" id="iconelement1" />
             <br />
-            Midday <br />
-            🌡️ 8°C
+            Time <br />
+            🌡️ °C
           </div>
           <div class="col-3" id="forecast2">
             <img src="./img/02d.png" width="50px" id="iconelement2" />
             <br />
-            Evening <br />
-            🌡️ 8°C
+            Time <br />
+            🌡️ °C
           </div>
           <div class="col-3" id="forecast3">
             <img src="./img/02d.png" width="50px" id="iconelement3" />
             <br />
-            Night<br />
-            🌡️ 5°C
+            Time <br />
+            🌡️ °C
           </div>
         </div>
-        <small class="source">
-          Open-source code weather app by Marlene Bay (Check project on
+
+       
+      </div>
+      <div class="row" id="suggestion">
+          <div class="col-3" id="suggestion0">
+      <button type="button" class="suggestion-btn" id="berlin" style="width: 8rem;">
+        Berlin
+      </button>
+      </div><div class="col-3" id="suggestion1">
+      <button type="button" class="suggestion-btn" id="newyork" style="width: 8rem;">
+        New York
+      </button>
+    </div><div class="col-3" id="suggestion2">
+      <button type="button" class="suggestion-btn" id="bangkok"style="width: 8rem;">
+        Bangkok
+      </button>
+    </div><div class="col-3" id="suggestion3">
+      <button type="button" class="suggestion-btn" id="tokyo"style="width: 8rem;">
+        Tokyo
+      </button>
+    </div> 
+    <small class="source">
           <a href="https://github.com/lenibye/weatherappgit" title="Github"
-            >Github
-          </a>
-          , icon creds:
+            >Open-sourced weather app
+          </a> by Marlene Bay (icons:
           <a
             href="https://www.flaticon.com/de/autoren/dinosoftlabs"
-            title="DinosoftLabs"
-            >DinosoftLabs</a
+            title="dinosoftlabs" 
+            id="iconsource"
+            >dinosoftlabs</a
           >)
         </small>
       </div>
-    </div>
 
     <script src="./src/app.js"></script>
   </body>
