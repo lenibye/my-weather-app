@@ -7,7 +7,7 @@ form {
   border: 2px solid #204051;
   border-radius: 10px;
   background: #fed19a;
-  width: 28vh;
+  width: 220px;
   padding: 10px 10px;
   position: absolute;
   top: 1%;
@@ -42,7 +42,7 @@ button[type="submit"]:hover {
 .app {
   border: 2px solid #204051;
   border-radius: 15px;
-  width: 98vh;
+  width: 800px;
   margin: 50px 65px 20px 65px;
   padding: 40px 40px 25px 40px;
   background: linear-gradient(180deg, #67b2df, #f9f9f9);
@@ -121,7 +121,7 @@ a.inactive {
 }
 
 #suggestion {
-  width: 98vh;
+  width: 800px;
   margin: 0px 65px 0px 65px;
   padding: 0px 40px 0px 40px;
 }
